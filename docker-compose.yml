@@ -1,0 +1,21 @@
+services:
+#web is the name of the service or job.
+  web:
+    build:
+#builds a docker image in the found docker file in the current directory.
+      context: .
+      dockerfile: Dockerfile
+    #Environment variables from secrets for script access.
+    environment:
+      - MASS_EMAIL=${MASS_EMAIL}
+      - EMAIL_PASSWORD=${EMAIL_PASSWORD}
+      - ADMIN_PASSWORD=${ADMIN_PASSWORD}
+      - APP_SECRET=${APP_SECRET}
+#Maps current directory to /app in docker file container.
+    volumes: 
+      - .:/app
+#Command to run when running docker image.
+    command: python osmApp.py
+#Maps port to flask app.
+    ports:
+      - 8080:8080

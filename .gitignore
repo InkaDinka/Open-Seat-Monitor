@@ -1,0 +1,8 @@
+/__pycache__
+/.env
+/instance
+/Deployment.md
+/osmApp.py
+/requirements.txt
+/templates/admin_table.html
+/templates/admin.html
